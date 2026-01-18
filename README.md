@@ -68,15 +68,21 @@ database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 2.  将 `database_id` 的值替换为您在上一步复制的真实 ID。
 3.  保存文件。
 
-### 6. 初始化数据库表结构
+### 6. 初始化数据库表结构 (重要)
 
-运行以下命令，在您的 D1 数据库中创建所需的表结构（执行 `schema.sql`）：
+您需要为运行环境创建表结构。
 
+**情况 A：如果您要部署到线上 (Deploy)**
 ```bash
-npx wrangler d1 execute bing-wallpapers --file=./schema.sql
+npx wrangler d1 execute bing-wallpapers --remote --file=./schema.sql
 ```
 
-如果是首次部署且希望先在本地测试，可以加上 `--local` 参数，但通常直接部署到远程即可。
+**情况 B：如果您要在本地测试 (Dev)**
+```bash
+npx wrangler d1 execute bing-wallpapers --local --file=./schema.sql
+```
+
+> **注意**：如果遇到 `no such table: wallpapers` 错误，就是因为漏掉了这一步。
 
 ### 7. 部署项目
 
