@@ -1,0 +1,15 @@
+{
+  "name": "bing-wallpaper-worker",
+  "version": "1.0.0",
+  "description": "Bing wallpaper archive and API",
+  "main": "src/index.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "db:create": "wrangler d1 create bing-wallpapers",
+    "db:init": "wrangler d1 execute bing-wallpapers --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

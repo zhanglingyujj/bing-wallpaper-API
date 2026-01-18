@@ -1,0 +1,13 @@
+name = "bing-wallpaper"
+main = "src/index.js"
+compatibility_date = "2023-01-01"
+
+# D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "bing-wallpapers"
+database_id = "INSERT_YOUR_DATABASE_ID_HERE"
+
+# Cron Trigger for daily updates (runs every day at 8:00 UTC)
+[triggers]
+crons = ["0 8 * * *"]
